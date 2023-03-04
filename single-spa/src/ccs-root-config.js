@@ -23,6 +23,13 @@ registerApplication({
     activeWhen: ['/react-multiples'],
 });
 
+registerApplication({
+  name: "@ccs/react-parcel",
+  app: () =>
+    System.import("@ccs/react-parcel"),
+    activeWhen: (location) => location.pathname === '/react-parcel',
+});
+
 start({
   urlRerouteOnly: true,
 });
