@@ -24,10 +24,10 @@ registerApplication({
 });
 
 registerApplication({
-  name: "@ccs/react-parcel",
+  name: "@ccs/react-route",
   app: () =>
-    System.import("@ccs/react-parcel"),
-    activeWhen: (location) => location.pathname === '/react-parcel',
+    System.import("@ccs/react-route"),
+    activeWhen: (location) => location.pathname === '/react-route',
 });
 
 start({

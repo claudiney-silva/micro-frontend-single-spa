@@ -1,7 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const App = ({ name }) => {
     const [tasks, updateTasks] = useState([])
+
+    useEffect(() => {
+        window.addEventListener('@ccs/react-route/todo/add-task', event => {
+            updateTasks(oldTasks => [
+                ...oldTasks,
+                event.detail,
+            ])
+        })
+    }, [])
+
     return (
         <>
             <h1>{name}</h1>
