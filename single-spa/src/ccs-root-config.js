@@ -6,14 +6,15 @@ registerApplication({
     System.import(
       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
     ),
-  activeWhen: ["/"],
+  activeWhen: (location) => location.pathname === '/',
 });
 
-// registerApplication({
-//   name: "@ccs/navbar",
-//   app: () => System.import("@ccs/navbar"),
-//   activeWhen: ["/"]
-// });
+registerApplication({
+  name: "@ccs/react-single",
+  app: () =>
+    System.import("@ccs/react-single"),
+    activeWhen: (location) => location.pathname === '/react-single',
+});
 
 start({
   urlRerouteOnly: true,
