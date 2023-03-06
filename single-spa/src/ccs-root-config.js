@@ -30,6 +30,13 @@ registerApplication({
     activeWhen: (location) => location.pathname === '/react-route',
 });
 
+registerApplication({
+  name: "@ccs/react-lazy",
+  app: () =>
+    System.import("@ccs/react-lazy"),
+    activeWhen: ['/react-lazy'],
+});
+
 start({
   urlRerouteOnly: true,
 });
