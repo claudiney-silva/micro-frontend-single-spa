@@ -37,6 +37,13 @@ registerApplication({
     activeWhen: ['/react-lazy'],
 });
 
+registerApplication({
+  name: "@ccs/react-header",
+  app: () =>
+    System.import("@ccs/react-header"),
+    activeWhen: ['/'],
+});
+
 start({
   urlRerouteOnly: true,
 });
