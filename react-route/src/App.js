@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Parcel from 'single-spa-react/parcel'
 import { v4 as uuid } from 'uuid';
+import { emitEvent } from '@ccs/utils'
 
 const App = ({ name }) => {
     const [task, updateTask] = useState('')
@@ -11,15 +12,10 @@ const App = ({ name }) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        dispatchEvent(new CustomEvent(
-            '@ccs/react-route/todo/add-task',
-            {
-                detail: {
-                    id: uuid(),
-                    describe: task
-                }
-            }
-        ))
+        emitEvent('@ccs/react-route/todo/add-task', {
+            id: uuid(),
+            describe: task
+        })
         updateTask('')
     }
 
